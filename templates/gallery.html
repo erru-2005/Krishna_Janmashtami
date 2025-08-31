@@ -1,0 +1,345 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - Krishna Janmashtami 2024{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-images"></i> Photo Gallery
+                </h1>
+                <p class="lead">Relive the divine moments from our previous Krishna Janmashtami celebrations</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Filters -->
+<section class="py-4 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center">
+                    <div class="btn-group" role="group" aria-label="Gallery filters">
+                        <button type="button" class="btn btn-outline-primary active" data-filter="all">All Photos</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="devotional">Devotional</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="cultural">Cultural</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="celebration">Celebration</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="community">Community</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="row" id="galleryGrid">
+            <!-- Gallery Item 1 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="devotional">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-pray" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Bhajan Sandhya 2023', 'Devotional songs and prayers during evening bhajan session')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Bhajan Sandhya 2023</h6>
+                        <p class="card-text text-muted small">Devotional songs and prayers during evening bhajan session</p>
+                        <span class="badge bg-primary">Devotional</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="cultural">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-theater-masks" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Krishna Leela Drama', 'Dramatic presentation of Lord Krishna\'s divine pastimes')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Krishna Leela Drama</h6>
+                        <p class="card-text text-muted small">Dramatic presentation of Lord Krishna's divine pastimes</p>
+                        <span class="badge bg-success">Cultural</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 3 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="celebration">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-hand-holding-heart" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Dahi Handi Celebration', 'Traditional pot-breaking ceremony with cultural performances')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Dahi Handi Celebration</h6>
+                        <p class="card-text text-muted small">Traditional pot-breaking ceremony with cultural performances</p>
+                        <span class="badge bg-warning">Celebration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 4 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="community">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-users" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Community Gathering', 'Devotees coming together for prasad distribution')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Community Gathering</h6>
+                        <p class="card-text text-muted small">Devotees coming together for prasad distribution</p>
+                        <span class="badge bg-info">Community</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 5 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="devotional">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-om" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Temple Decorations', 'Beautiful temple decorations for Krishna Janmashtami')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Temple Decorations</h6>
+                        <p class="card-text text-muted small">Beautiful temple decorations for Krishna Janmashtami</p>
+                        <span class="badge bg-primary">Devotional</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 6 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="cultural">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-music" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Classical Dance', 'Traditional classical dance performances')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Classical Dance</h6>
+                        <p class="card-text text-muted small">Traditional classical dance performances</p>
+                        <span class="badge bg-success">Cultural</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 7 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="celebration">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-baby" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Jhulan Utsav', 'Baby Krishna cradle decoration ceremony')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Jhulan Utsav</h6>
+                        <p class="card-text text-muted small">Baby Krishna cradle decoration ceremony</p>
+                        <span class="badge bg-warning">Celebration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 8 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="community">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-utensils" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Prasad Preparation', 'Community members preparing prasad for distribution')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Prasad Preparation</h6>
+                        <p class="card-text text-muted small">Community members preparing prasad for distribution</p>
+                        <span class="badge bg-info">Community</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 9 -->
+            <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="devotional">
+                <div class="card gallery-card">
+                    <div class="card-img-top position-relative">
+                        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="fas fa-praying-hands" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <button class="btn btn-light btn-sm" onclick="openModal('Aarti Ceremony', 'Evening aarti ceremony with devotees')">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Aarti Ceremony</h6>
+                        <p class="card-text text-muted small">Evening aarti ceremony with devotees</p>
+                        <span class="badge bg-primary">Devotional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h3 class="mb-4">Be Part of Our Next Celebration</h3>
+        <p class="lead mb-4">Join us for Krishna Janmashtami 2024 and create memories that will be cherished forever</p>
+        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-3">
+            <i class="fas fa-user-plus"></i> Register Now
+        </a>
+        <a href="{{ url_for('events_page') }}" class="btn btn-outline-primary btn-lg">
+            <i class="fas fa-calendar-alt"></i> View Events
+        </a>
+    </div>
+</section>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Image Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
+                    <i class="fas fa-image" style="font-size: 4rem; color: #ccc;"></i>
+                </div>
+                <p class="mt-3" id="modalDescription">Image description will appear here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.gallery-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.btn-group .btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gallery filtering
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter gallery items
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+// Modal functionality
+function openModal(title, description) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalDescription').textContent = description;
+    
+    const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+    modal.show();
+}
+</script>
+{% endblock %}

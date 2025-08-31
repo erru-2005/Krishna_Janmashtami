@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.title }} - Krishna Janmashtami 2024{% endblock %}
+
+{% block content %}
+<!-- Event Header -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('home') }}" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('events_page') }}" class="text-white">Events</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ event.title }}</li>
+                    </ol>
+                </nav>
+                
+                <div class="text-center">
+                    <span class="badge bg-light text-primary mb-3">{{ event.category }}</span>
+                    <h1 class="display-4 fw-bold mb-4">{{ event.title }}</h1>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                <i class="fas fa-calendar-alt me-2"></i>
+                                <span>{{ event.date }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                <i class="fas fa-clock me-2"></i>
+                                <span>{{ event.time }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center justify-content-center mb-2">
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                <span>{{ event.location }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Event Details -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Event Description</h3>
+                        <p class="lead mb-4">{{ event.description }}</p>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-calendar-alt text-primary"></i> Date & Time</h5>
+                                <p class="mb-3">
+                                    <strong>Date:</strong> {{ event.date }}<br>
+                                    <strong>Time:</strong> {{ event.time }}
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-map-marker-alt text-primary"></i> Venue</h5>
+                                <p class="mb-3">
+                                    <strong>Location:</strong> {{ event.location }}
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5><i class="fas fa-tags text-primary"></i> Event Category</h5>
+                            <span class="badge bg-primary fs-6">{{ event.category }}</span>
+                        </div>
+                        
+                        <!-- Additional Information based on category -->
+                        {% if event.category == 'Devotional' %}
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-info-circle"></i> Devotional Event Information</h6>
+                            <ul class="mb-0">
+                                <li>Please arrive 15 minutes before the scheduled time</li>
+                                <li>Traditional attire is recommended but not mandatory</li>
+                                <li>Photography is allowed during specific segments</li>
+                                <li>Prasad will be distributed after the event</li>
+                            </ul>
+                        </div>
+                        {% elif event.category == 'Cultural' %}
+                        <div class="alert alert-success">
+                            <h6><i class="fas fa-info-circle"></i> Cultural Event Information</h6>
+                            <ul class="mb-0">
+                                <li>Traditional costumes and decorations will be featured</li>
+                                <li>Interactive participation is encouraged</li>
+                                <li>Cultural performances by local artists</li>
+                                <li>Traditional refreshments will be served</li>
+                            </ul>
+                        </div>
+                        {% elif event.category == 'Entertainment' %}
+                        <div class="alert alert-warning">
+                            <h6><i class="fas fa-info-circle"></i> Entertainment Event Information</h6>
+                            <ul class="mb-0">
+                                <li>Professional sound and lighting arrangements</li>
+                                <li>Seating will be provided for all attendees</li>
+                                <li>Recording and photography may be restricted</li>
+                                <li>Refreshments available during intermission</li>
+                            </ul>
+                        </div>
+                        {% elif event.category == 'Community' %}
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-info-circle"></i> Community Event Information</h6>
+                            <ul class="mb-0">
+                                <li>Open to all community members</li>
+                                <li>Volunteer opportunities available</li>
+                                <li>Community bonding and networking</li>
+                                <li>Free participation for all attendees</li>
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Event Schedule -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Event Schedule</h4>
+                        <div class="timeline">
+                            <div class="row mb-3">
+                                <div class="col-md-3">
+                                    <strong>{{ event.time }}</strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="border-start border-primary ps-3">
+                                        <h6>Event Begins</h6>
+                                        <p class="text-muted mb-0">Opening ceremony and welcome address</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-3">
+                                    <strong>{{ event.time.split(':')[0] }}:{{ (event.time.split(':')[1]|int + 30)|stringformat:"02d" }}</strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="border-start border-primary ps-3">
+                                        <h6>Main Program</h6>
+                                        <p class="text-muted mb-0">Main event activities and performances</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <strong>{{ event.time.split(':')[0] }}:{{ (event.time.split(':')[1]|int + 90)|stringformat:"02d" }}</strong>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="border-start border-primary ps-3">
+                                        <h6>Closing</h6>
+                                        <p class="text-muted mb-0">Closing ceremony and prasad distribution</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Registration Card -->
+                <div class="card mb-4 sticky-top" style="top: 100px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-3">Join This Event</h5>
+                        <p class="text-muted mb-4">Register now to secure your spot for this special celebration</p>
+                        
+                        <div class="mb-4">
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <div class="border-end">
+                                        <h4 class="text-primary fw-bold">Free</h4>
+                                        <small class="text-muted">Entry</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h4 class="text-primary fw-bold">Open</h4>
+                                    <small class="text-muted">Registration</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="{{ url_for('register') }}?event_id={{ event.id }}" class="btn btn-primary btn-lg w-100 mb-3">
+                            <i class="fas fa-user-plus"></i> Register Now
+                        </a>
+                        
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle"></i> Registration is free and open to all
+                        </small>
+                    </div>
+                </div>
+                
+                <!-- Quick Info -->
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title mb-3">Quick Information</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                Duration: ~2 hours
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-users text-primary me-2"></i>
+                                Capacity: Unlimited
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-parking text-primary me-2"></i>
+                                Parking: Available
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-wheelchair text-primary me-2"></i>
+                                Accessibility: Wheelchair friendly
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-camera text-primary me-2"></i>
+                                Photography: Allowed
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Events -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h3 class="text-center mb-5">Other Events You Might Like</h3>
+        <div class="row">
+            {% for i in range(3) %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <span class="badge bg-primary mb-2">Sample Event</span>
+                        <h5 class="card-title">Sample Event Title</h5>
+                        <p class="card-text text-muted">Brief description of the sample event that might interest attendees.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-calendar"></i> Aug 27, 2024
+                            </small>
+                            <a href="#" class="btn btn-outline-primary btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
