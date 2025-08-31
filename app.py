@@ -50,6 +50,10 @@ events = [
 ]
 
 @app.route('/')
+def landing():
+    return render_template('landing.html')
+
+@app.route('/home')
 def home():
     return render_template('index.html', events=events[:3])
 
