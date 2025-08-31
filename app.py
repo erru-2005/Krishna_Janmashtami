@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
-app.secret_key = 'krishna_janmashtami_2024_secret_key'
+app.secret_key = 'krishna_janmashtami_2025_secret_key'
 
 # Sample events data (in a real app, this would come from a database)
 events = [
@@ -11,7 +11,7 @@ events = [
         'id': 1,
         'title': 'Bhajan Sandhya',
         'description': 'Evening devotional songs and bhajans dedicated to Lord Krishna',
-        'date': '2024-08-26',
+        'date': '2025-09-14',
         'time': '18:00',
         'location': 'Main Temple Hall',
         'image': 'bhajan.jpg',
@@ -21,7 +21,7 @@ events = [
         'id': 2,
         'title': 'Dahi Handi Celebration',
         'description': 'Traditional Dahi Handi breaking ceremony with cultural performances',
-        'date': '2024-08-27',
+        'date': '2025-09-14',
         'time': '10:00',
         'location': 'Temple Grounds',
         'image': 'dahi-handi.jpg',
@@ -31,7 +31,7 @@ events = [
         'id': 3,
         'title': 'Krishna Leela Drama',
         'description': 'Dramatic presentation of Lord Krishna\'s divine pastimes',
-        'date': '2024-08-27',
+        'date': '2025-09-14',
         'time': '19:00',
         'location': 'Cultural Center',
         'image': 'drama.jpg',
@@ -41,7 +41,7 @@ events = [
         'id': 4,
         'title': 'Prasad Distribution',
         'description': 'Distribution of blessed food and sweets to devotees',
-        'date': '2024-08-28',
+        'date': '2025-09-14',
         'time': '12:00',
         'location': 'Community Hall',
         'image': 'prasad.jpg',
