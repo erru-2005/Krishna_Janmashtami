@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Gallery - Krishna Janmashtami 2024{% endblock %}
+{% block title %}Gallery - Krishna Janmashtami 2025{% endblock %}
 
 {% block content %}
 <!-- Page Header -->
@@ -17,24 +17,7 @@
     </div>
 </section>
 
-<!-- Gallery Filters -->
-<section class="py-4 bg-light">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="text-center">
-                    <div class="btn-group" role="group" aria-label="Gallery filters">
-                        <button type="button" class="btn btn-outline-primary active" data-filter="all">All Photos</button>
-                        <button type="button" class="btn btn-outline-primary" data-filter="devotional">Devotional</button>
-                        <button type="button" class="btn btn-outline-primary" data-filter="cultural">Cultural</button>
-                        <button type="button" class="btn btn-outline-primary" data-filter="celebration">Celebration</button>
-                        <button type="button" class="btn btn-outline-primary" data-filter="community">Community</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- Gallery Grid -->
 <section class="py-5">
@@ -236,10 +219,7 @@
 <section class="py-5 bg-light">
     <div class="container text-center">
         <h3 class="mb-4">Be Part of Our Next Celebration</h3>
-        <p class="lead mb-4">Join us for Krishna Janmashtami 2024 and create memories that will be cherished forever</p>
-        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-3">
-            <i class="fas fa-user-plus"></i> Register Now
-        </a>
+                        <p class="lead mb-4">Join us for Krishna Janmashtami 2025 and create memories that will be cherished forever</p>
         <a href="{{ url_for('events_page') }}" class="btn btn-outline-primary btn-lg">
             <i class="fas fa-calendar-alt"></i> View Events
         </a>
@@ -308,31 +288,6 @@
 
 {% block extra_js %}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Gallery filtering
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter gallery items
-            galleryItems.forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-});
-
 // Modal functionality
 function openModal(title, description) {
     document.getElementById('modalTitle').textContent = title;

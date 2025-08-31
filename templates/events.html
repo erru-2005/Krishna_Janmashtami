@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Events - Krishna Janmashtami 2024{% endblock %}
+{% block title %}Events - Krishna Janmashtami 2025{% endblock %}
 
 {% block content %}
 <!-- Page Header -->
@@ -20,24 +20,7 @@
 <!-- Events Section -->
 <section class="py-5">
     <div class="container">
-        <!-- Search and Filter -->
-        <div class="row mb-4">
-            <div class="col-md-8">
-                <div class="input-group">
-                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                    <input type="text" class="form-control" id="searchInput" placeholder="Search events...">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" id="categoryFilter">
-                    <option value="">All Categories</option>
-                    <option value="Devotional">Devotional</option>
-                    <option value="Cultural">Cultural</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Community">Community</option>
-                </select>
-            </div>
-        </div>
+
 
         <!-- Events Grid -->
         <div class="row" id="eventsContainer">
@@ -142,54 +125,9 @@
     <div class="container text-center">
         <h3 class="mb-4">Ready to Join the Celebration?</h3>
         <p class="lead mb-4">Register for your preferred events and be part of this divine celebration</p>
-        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
-            <i class="fas fa-user-plus"></i> Register Now
-        </a>
+        
     </div>
 </section>
 {% endblock %}
 
-{% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const eventsContainer = document.getElementById('eventsContainer');
-    const noEventsMessage = document.getElementById('noEventsMessage');
-    const eventItems = document.querySelectorAll('.event-item');
 
-    function filterEvents() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const selectedCategory = categoryFilter.value;
-        let visibleCount = 0;
-
-        eventItems.forEach(item => {
-            const title = item.querySelector('.card-title').textContent.toLowerCase();
-            const description = item.querySelector('.card-text').textContent.toLowerCase();
-            const category = item.dataset.category;
-
-            const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-            const matchesCategory = !selectedCategory || category === selectedCategory;
-
-            if (matchesSearch && matchesCategory) {
-                item.style.display = 'block';
-                visibleCount++;
-            } else {
-                item.style.display = 'none';
-            }
-        });
-
-        if (visibleCount === 0) {
-            noEventsMessage.style.display = 'block';
-            eventsContainer.style.display = 'none';
-        } else {
-            noEventsMessage.style.display = 'none';
-            eventsContainer.style.display = 'block';
-        }
-    }
-
-    searchInput.addEventListener('input', filterEvents);
-    categoryFilter.addEventListener('change', filterEvents);
-});
-</script>
-{% endblock %}

@@ -100,18 +100,248 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Responsive utilities */
-@media (max-width: 768px) {
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Extra Small devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+    /* Hero Section */
+    .hero-section {
+        min-height: 40vh;
+        padding: 2rem 0;
+    }
+    
+    .display-3 {
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+    }
+    
+    .display-4 {
+        font-size: 1.5rem !important;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    /* Navigation */
+    .navbar-brand {
+        font-size: 1.2rem !important;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+    
+    .navbar-nav .btn {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+    
+    /* Buttons */
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .btn {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    
+    /* Cards */
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    /* Grid adjustments */
+    .col-4 {
+        margin-bottom: 1rem;
+    }
+    
+    .border-end {
+        border-right: none !important;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 1rem;
+    }
+    
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 2rem 0;
+    }
+    
+    .footer .col-md-4 {
+        margin-bottom: 2rem;
+    }
+    
+    /* Container padding */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Section spacing */
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    /* Main content margin */
+    main {
+        margin-top: 70px !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .hero-section {
+        min-height: 45vh;
+    }
+    
+    .display-3 {
+        font-size: 2.2rem !important;
+    }
+    
+    .display-4 {
+        font-size: 1.8rem !important;
+    }
+    
+    .btn {
+        margin-bottom: 0.5rem;
+    }
+    
+    .navbar-nav .btn {
+        width: auto;
+        margin: 0.5rem 0;
+    }
+    
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
     .hero-section {
         min-height: 50vh;
     }
     
     .display-3 {
-        font-size: 2.5rem;
+        font-size: 2.5rem !important;
     }
     
     .display-4 {
-        font-size: 2rem;
+        font-size: 2rem !important;
+    }
+    
+    .btn {
+        margin-bottom: 0;
+    }
+    
+    .navbar-nav .btn {
+        width: auto;
+        margin: 0;
+    }
+    
+    /* Two column layout for highlights */
+    .col-lg-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .hero-section {
+        min-height: 55vh;
+    }
+    
+    .display-3 {
+        font-size: 3rem !important;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .hero-section {
+        min-height: 60vh;
+    }
+    
+    .display-3 {
+        font-size: 3.5rem !important;
+    }
+    
+    .display-4 {
+        font-size: 3rem !important;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero-section {
+        min-height: 30vh;
+        padding: 1rem 0;
+    }
+    
+    .display-3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .lead {
+        font-size: 0.9rem;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .card {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .animated-icon,
+    .pulse,
+    .hover-lift,
+    .btn-glow::before {
+        animation: none;
+        transition: none;
+    }
+    
+    .hover-lift:hover {
+        transform: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: #ecf0f1;
+    }
+    
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ecf0f1;
+    }
+    
+    .navbar {
+        background: rgba(44, 62, 80, 0.95) !important;
+    }
+    
+    .nav-link {
+        color: #ecf0f1 !important;
     }
 }
 
@@ -129,5 +359,75 @@
     .card {
         border: 1px solid #ddd !important;
         box-shadow: none !important;
+    }
+    
+    .hero-section {
+        background: none !important;
+        color: black !important;
+    }
+}
+
+/* Utility classes for responsive design */
+.responsive-text {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.responsive-heading {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.responsive-padding {
+    padding: clamp(1rem, 3vw, 3rem) 0;
+}
+
+.responsive-margin {
+    margin: clamp(1rem, 3vw, 3rem) 0;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure tables are responsive */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure forms are responsive */
+.form-control {
+    font-size: 16px; /* Prevents zoom on iOS */
+}
+
+/* Ensure modals are responsive */
+.modal-dialog {
+    margin: 1rem;
+    max-width: calc(100% - 2rem);
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        margin: 1.75rem auto;
+        max-width: 500px;
+    }
+}
+
+/* Ensure carousels are responsive */
+.carousel-item img {
+    object-fit: cover;
+    height: 300px;
+}
+
+@media (min-width: 768px) {
+    .carousel-item img {
+        height: 400px;
+    }
+}
+
+@media (min-width: 992px) {
+    .carousel-item img {
+        height: 500px;
     }
 }

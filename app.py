@@ -103,5 +103,11 @@ def register():
 def gallery():
     return render_template('gallery.html')
 
+@app.route('/sw.js')
+def service_worker():
+    response = app.send_static_file('sw.js')
+    response.headers['Content-Type'] = 'application/javascript'
+    return response
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
