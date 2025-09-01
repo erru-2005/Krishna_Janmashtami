@@ -87,7 +87,7 @@
 <body>
     <div class="landing-container">
         <div class="video-container">
-            <video class="landing-video" autoplay muted playsinline id="landingVideo">
+            <video class="landing-video" autoplay muted playsinline preload="auto" id="landingVideo">
                 <source src="{{ url_for('static', filename='images/Blue Photo India Krishna Janmashtami Mobile Video.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -104,9 +104,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('landingVideo');
             const skipButton = document.querySelector('.skip-button');
+            let redirectTimeout;
+            let hasRedirected = false;
             
             // Function to smoothly transition to main website
             function smoothTransition() {
+                if (hasRedirected) return; // Prevent multiple redirects
+                hasRedirected = true;
+                
                 const container = document.querySelector('.landing-container');
                 container.classList.add('fade-out');
                 
@@ -115,20 +120,39 @@
                 }, 1000); // Wait for fade animation to complete
             }
             
-            // Auto redirect when video ends
-            video.addEventListener('ended', function() {
+            // Handle video load errors
+            video.addEventListener('error', function() {
+                console.log('Video failed to load, redirecting...');
                 smoothTransition();
             });
             
-            // Fallback redirect after video duration (or 10 seconds minimum)
-            let redirectTimeout;
+            // Auto redirect when video ends
+            video.addEventListener('ended', function() {
+                console.log('Video ended, redirecting...');
+                smoothTransition();
+            });
             
+            // Handle video can play event
+            video.addEventListener('canplay', function() {
+                console.log('Video can play');
+                // Start playing if not already playing
+                if (video.paused) {
+                    video.play().catch(function(error) {
+                        console.log('Video play failed:', error);
+                        smoothTransition();
+                    });
+                }
+            });
+            
+            // Fallback redirect after video duration (or 10 seconds minimum)
             video.addEventListener('loadedmetadata', function() {
+                console.log('Video metadata loaded, duration:', video.duration);
                 const videoDuration = video.duration * 1000; // Convert to milliseconds
                 const minDuration = 10000; // 10 seconds minimum
                 const redirectTime = Math.max(videoDuration, minDuration);
                 
                 redirectTimeout = setTimeout(function() {
+                    console.log('Fallback timeout reached, redirecting...');
                     smoothTransition();
                 }, redirectTime);
             });
@@ -136,16 +160,26 @@
             // Skip button functionality
             skipButton.addEventListener('click', function(e) {
                 e.preventDefault();
-                clearTimeout(redirectTimeout);
+                console.log('Skip button clicked');
+                if (redirectTimeout) clearTimeout(redirectTimeout);
                 smoothTransition();
             });
             
-            // Fallback redirect if video doesn't load
+            // Fallback redirect if video doesn't load within 5 seconds
             setTimeout(function() {
-                if (!video.readyState) {
+                if (video.readyState === 0) {
+                    console.log('Video not loaded within 5 seconds, redirecting...');
                     smoothTransition();
                 }
-            }, 15000); // 15 seconds fallback
+            }, 5000); // 5 seconds fallback
+            
+            // Additional fallback after 15 seconds
+            setTimeout(function() {
+                if (!hasRedirected) {
+                    console.log('15-second fallback reached, redirecting...');
+                    smoothTransition();
+                }
+            }, 15000);
         });
     </script>
 </body>
