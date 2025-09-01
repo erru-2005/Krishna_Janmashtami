@@ -315,13 +315,6 @@ window.KrishnaJanmashtami = {
     },
     
     adjustTextSizes: function() {
-        const vw = window.innerWidth;
-        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
         
-        headings.forEach(heading => {
-            const baseSize = parseFloat(getComputedStyle(heading).fontSize);
-            const responsiveSize = Math.max(baseSize * 0.8, baseSize * (vw / 1200));
-            heading.style.fontSize = `${responsiveSize}px`;
-        });
     }
 };
