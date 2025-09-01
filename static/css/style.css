@@ -1,5 +1,23 @@
 /* Custom styles for Krishna Janmashtami Website */
 
+/* Krishna Icon styling */
+.krishna-icon {
+    font-size: 2rem !important;
+    margin-right: 8px;
+    color: #FFD700;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Events page background */
+.events-page {
+    background-image: url('../images/krishna.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
 /* Additional custom styles */
 .hero-bg {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
@@ -100,34 +118,169 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== COMPLETELY STABLE FONT SYSTEM ===== */
+
+/* Fixed base font size - NEVER changes */
+html {
+    font-size: 16px !important;
+}
+
+body {
+    font-size: 16px !important;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ALL heading sizes - NEVER change */
+h1, .h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h2, .h2 {
+    font-size: 2rem !important;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+h3, .h3 {
+    font-size: 1.75rem !important;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+h4, .h4 {
+    font-size: 1.5rem !important;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+h5, .h5 {
+    font-size: 1.25rem !important;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+h6, .h6 {
+    font-size: 1rem !important;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Display classes - NEVER change */
+.display-3 {
+    font-size: 3rem !important;
+    line-height: 1.2;
+}
+
+.display-4 {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+}
+
+/* ALL other elements - NEVER change */
+p, .lead {
+    font-size: 1.125rem !important;
+    line-height: 1.7;
+}
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-size: 1rem !important;
+    font-weight: 500;
+}
+
+.btn {
+    font-size: 1rem !important;
+    font-weight: 500;
+}
+
+.btn-lg {
+    font-size: 1.125rem !important;
+}
+
+.btn-sm {
+    font-size: 0.875rem !important;
+    font-weight: 500;
+}
+
+.card-title {
+    font-size: 1.25rem !important;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 1rem !important;
+    line-height: 1.6;
+}
+
+/* Additional elements for events page */
+.badge {
+    font-size: 0.75rem !important;
+    font-weight: 500;
+}
+
+small, .small {
+    font-size: 0.875rem !important;
+    line-height: 1.5;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+/* Event specific elements */
+.event-card .card-title {
+    font-size: 1.25rem !important;
+    font-weight: 600;
+}
+
+.event-card .card-text {
+    font-size: 1rem !important;
+    line-height: 1.6;
+}
+
+.event-card small {
+    font-size: 0.875rem !important;
+}
+
+.event-card .btn-sm {
+    font-size: 0.875rem !important;
+}
+
+/* Category icons */
+.fas {
+    font-size: inherit !important;
+}
+
+/* No events message */
+#noEventsMessage h4 {
+    font-size: 1.5rem !important;
+    font-weight: 500;
+}
+
+#noEventsMessage p {
+    font-size: 1rem !important;
+}
 
 /* Extra Small devices (phones, 576px and down) */
 @media (max-width: 575.98px) {
-    /* Hero Section */
+    /* Layout adjustments only - NO font size changes */
     .hero-section {
         min-height: 40vh;
         padding: 2rem 0;
     }
     
-    .display-3 {
-        font-size: 1.8rem !important;
-        line-height: 1.2;
-    }
-    
-    .display-4 {
-        font-size: 1.5rem !important;
-    }
-    
-    .lead {
-        font-size: 1rem;
-    }
-    
-    /* Navigation */
-    .navbar-brand {
-        font-size: 1.2rem !important;
-    }
-    
+    /* Navigation layout */
     .navbar-nav .nav-link {
         padding: 0.5rem 0;
         text-align: center;
@@ -138,18 +291,13 @@
         width: 100%;
     }
     
-    /* Buttons */
-    .btn-lg {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-    }
-    
+    /* Buttons layout */
     .btn {
         margin-bottom: 0.5rem;
         width: 100%;
     }
     
-    /* Cards */
+    /* Cards layout */
     .card {
         margin-bottom: 1rem;
     }
@@ -169,7 +317,7 @@
         padding-bottom: 1rem;
     }
     
-    /* Footer */
+    /* Footer layout */
     .footer {
         text-align: center;
         padding: 2rem 0;
@@ -199,16 +347,9 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
+    /* Layout adjustments only - NO font size changes */
     .hero-section {
         min-height: 45vh;
-    }
-    
-    .display-3 {
-        font-size: 2.2rem !important;
-    }
-    
-    .display-4 {
-        font-size: 1.8rem !important;
     }
     
     .btn {
@@ -228,16 +369,9 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
+    /* Layout adjustments only - NO font size changes */
     .hero-section {
         min-height: 50vh;
-    }
-    
-    .display-3 {
-        font-size: 2.5rem !important;
-    }
-    
-    .display-4 {
-        font-size: 2rem !important;
     }
     
     .btn {
@@ -258,31 +392,17 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+    /* Layout adjustments only - NO font size changes */
     .hero-section {
         min-height: 55vh;
-    }
-    
-    .display-3 {
-        font-size: 3rem !important;
-    }
-    
-    .display-4 {
-        font-size: 2.5rem !important;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+    /* Layout adjustments only - NO font size changes */
     .hero-section {
         min-height: 60vh;
-    }
-    
-    .display-3 {
-        font-size: 3.5rem !important;
-    }
-    
-    .display-4 {
-        font-size: 3rem !important;
     }
 }
 
@@ -291,14 +411,6 @@
     .hero-section {
         min-height: 30vh;
         padding: 1rem 0;
-    }
-    
-    .display-3 {
-        font-size: 1.5rem !important;
-    }
-    
-    .lead {
-        font-size: 0.9rem;
     }
 }
 
