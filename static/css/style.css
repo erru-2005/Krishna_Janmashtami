@@ -73,8 +73,8 @@
 
 /* Krishna Icon styling */
 .krishna-icon {
-    font-size: 2rem !important;
-    margin-right: 8px;
+    font-size: 3.5rem !important;
+    margin-right: 12px;
     color: #FFD700;
     animation: float 3s ease-in-out infinite;
 }
