@@ -9,43 +9,57 @@ app.secret_key = 'krishna_janmashtami_2025_secret_key'
 events = [
     {
         'id': 1,
-        'title': 'Bhajan Sandhya',
-        'description': 'Evening devotional songs and bhajans dedicated to Lord Krishna',
-        'date': '2025-09-14',
-        'time': '18:00',
-        'location': 'Main Temple Hall',
-        'image': 'bhajan.jpg',
-        'category': 'Devotional'
+        'title': 'Bhajane / Keertane Competition',
+        'description': 'Singing devotional songs or hymns of Krishna. The competition is open to all students in group format only. A team must have a minimum of 3 members and maximum of 5 members (3 singers + 2 instrumentalists included).',
+        'date': '08-09-2025',
+        'time': '3:00 PM',
+        'location': 'A. V. Hall, Dr. B. B. Hegde First Grade College, Kundapur',
+        'image': 'krishna2.jfif',
+        'category': 'Devotional',
+        'rules': [
+            'Time limit: 3+1 minutes',
+            'Instruments can be used, but participants must bring their own',
+            'The song must be about Krishna',
+            'Competition will be held in group format only',
+            'A team must have a minimum of 3 members and maximum of 5 members (3 singers + 2 instrumentalists included)',
+            'Teams can use instruments (tabla, tala, harmonium, keyboard etc.)',
+            'The decision of the judges is final'
+        ],
+        'venue': 'A. V. Hall',
+        'college': 'Dr. B. B. Hegde First Grade College, Kundapur',
+        'coordinator': 'Rashmi Gawadi, Assistant Professor, Department of Computer Application',
+        'registration_deadline': '06/09/2025',
+        'notice_date': '02/09/2025',
+        'college_phone': '20000-576201'
     },
     {
         'id': 2,
-        'title': 'Dahi Handi Celebration',
-        'description': 'Traditional Dahi Handi breaking ceremony with cultural performances',
-        'date': '2025-09-14',
-        'time': '10:00',
-        'location': 'Temple Grounds',
-        'image': 'dahi-handi.jpg',
-        'category': 'Cultural'
-    },
-    {
-        'id': 3,
-        'title': 'Krishna Leela Drama',
-        'description': 'Dramatic presentation of Lord Krishna\'s divine pastimes',
-        'date': '2025-09-14',
-        'time': '19:00',
-        'location': 'Cultural Center',
-        'image': 'drama.jpg',
-        'category': 'Entertainment'
-    },
-    {
-        'id': 4,
-        'title': 'Prasad Distribution',
-        'description': 'Distribution of blessed food and sweets to devotees',
-        'date': '2025-09-14',
-        'time': '12:00',
-        'location': 'Community Hall',
-        'image': 'prasad.jpg',
-        'category': 'Community'
+        'title': 'Janmashtami Greeting Card Making Competition',
+        'description': 'Create beautiful handmade greeting cards celebrating Lord Krishna\'s birth. Express your creativity through art and design while spreading the message of Krishna Janmashtami.',
+        'date': '12-09-2025',
+        'time': '3:00 PM - 4:15 PM',
+        'location': 'College Library, Dr. B. B. Hegde First Grade College, Kundapur',
+        'image': 'krishna2.jfif',
+        'category': 'Creative',
+        'rules': [
+            'Time: 1 hour 15 minutes',
+            'The greeting card should be handmade (do not use ready-made cards available in the market)',
+            'The paper size should be A4/A5 size',
+            'Colored pens, crayons, watercolors, or any decorative materials can be used',
+            'The card should have a message/quote/image related to "Shri Krishna Janmashtami"',
+            'Everyone should submit only one card',
+            'The judging will be based on creativity, decoration, and relevance of the topic',
+            'The decision of the judges is final'
+        ],
+        'venue': 'College Library',
+        'college': 'Dr. B. B. Hegde First Grade College, Kundapur',
+        'coordinator': 'Megha and Shivani Adiga, Assistant Professors, Department of Computer Application',
+        'registration_deadline': '10/09/2025',
+        'notice_date': '02/09/2025',
+        'college_phone': '20000-576201',
+        'duration': '1 hour 15 minutes',
+        'paper_size': 'A4/A5 size',
+        'materials_allowed': 'Colored pens, crayons, watercolors, decorative materials'
     }
 ]
 
