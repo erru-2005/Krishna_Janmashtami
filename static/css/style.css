@@ -1,5 +1,76 @@
 /* Custom styles for Krishna Janmashtami Website */
 
+/* College Header Styles */
+.college-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.college-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.college-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.college-info {
+    text-align: center;
+    color: white;
+}
+
+.college-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.college-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+    margin: 0.5rem auto;
+    width: 80%;
+}
+
+.college-subtitle {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments for college header */
+@media (max-width: 768px) {
+    .college-header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .college-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .college-title {
+        font-size: 1.2rem;
+    }
+    
+    .college-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
 /* Krishna Icon styling */
 .krishna-icon {
     font-size: 2rem !important;
