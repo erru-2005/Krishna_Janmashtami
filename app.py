@@ -30,7 +30,8 @@ events = [
         'coordinator': 'Rashmi Gawadi, Assistant Professor, Department of Computer Application',
         'registration_deadline': '06/09/2025',
         'notice_date': '02/09/2025',
-        'college_phone': '20000-576201'
+        'college_phone': '20000-576201',
+        'Google_form': 'https://docs.google.com/forms/d/e/1FAIpQLSfRv3I5d9HASnAlUhqWwbKG_OLOjIJKRYta3djFyHM_dEW7eg/viewform?usp=header'
     },
     {
         'id': 2,
@@ -59,7 +60,9 @@ events = [
         'college_phone': '20000-576201',
         'duration': '1 hour 15 minutes',
         'paper_size': 'A4/A5 size',
-        'materials_allowed': 'Colored pens, crayons, watercolors, decorative materials'
+        'materials_allowed': 'Colored pens, crayons, watercolors, decorative materials',
+        'Google_form': 'https://docs.google.com/forms/d/e/1FAIpQLSf0UEtQ0-DSPx2CfcQ8dtLz2u2K321OKV73Yc4tpgg2Lt57xw/viewform?usp=header',
+        
     },
     {
         'id': 3,
@@ -84,7 +87,95 @@ events = [
         'college_phone': '20000-576201',
         'duration': '5 minutes',
         'story_type': 'Scripture-based Krishna stories',
-        'scoring_criteria': 'Expression, voice modulation, clarity'
+        'scoring_criteria': 'Expression, voice modulation, clarity',
+        'Google_form': 'https://docs.google.com/forms/d/e/1FAIpQLSfRv3I5d9HASnAlUhqWwbKG_OLOjIJKRYta3djFyHM_dEW7eg/viewform?usp=header',
+    },
+    {
+        'id': 4,
+        'title': 'Rangoli Competition',
+        'description': 'Create beautiful Krishna-themed rangoli designs using colors, flowers, and decorative materials. Express your artistic talent while celebrating the divine presence of Lord Krishna.',
+        'date': '13-09-2025',
+        'time': '11:30 AM - 12:30 PM',
+        'location': 'College Campus, Dr. B. B. Hegde First Grade College, Kundapur',
+        'image': 'krishna2.jfif',
+        'category': 'Creative',
+        'rules': [
+            'Only Krishna-related themes are allowed',
+            'Time: 1 hour',
+            'Rangoli can include colors, flowers, and other decorative materials',
+            'Judges\' decision will be final'
+        ],
+        'venue': 'College Campus',
+        'college': 'Dr. B. B. Hegde First Grade College, Kundapur',
+        'coordinator': 'Prof. P. Sumathi, Department of Music',
+        'registration_deadline': '11/09/2025',
+        'notice_date': '02/09/2025',
+        'college_phone': '20000-576201',
+        'duration': '1 hour',
+        'theme_requirement': 'Only Krishna-related themes',
+        'materials_allowed': 'Colors, flowers, and decorative materials',
+        'Google_form': 'https://docs.google.com/forms/d/e/1FAIpQLSf1Jv-Wt4u3cxpGldrBML_2hZv6ebPmDB-23a8P63x2c98D-A/viewform?usp=header',
+    },
+    {
+        'id': 5,
+        'title': 'Quiz Competition',
+        'description': 'Test your knowledge about Lord Krishna\'s life and teachings from the Mahabharata, Bhagavad Gita, and Shrimad Bhagavata. Participate in this exciting two-round quiz competition with your teammate.',
+        'date': '08-09-2025',
+        'time': '11:00 AM - 12:00 PM',
+        'location': 'Library & Research Lab, Dr. B. B. Hegde First Grade College, Kundapur',
+        'image': 'krishna2.jfif',
+        'category': 'Academic',
+        'rules': [
+            'The competition consists of two rounds: Preliminary and Final',
+            'Only team entries are permitted (2 members per team)',
+            'Any number of teams can participate from each class',
+            'Preliminary Round: 30 questions in 60 minutes',
+            'Only 5 teams will be selected for the Final Round',
+            'Final Round follows "Fastest Finger First" format',
+            'Questions based on Krishna\'s life and teachings from Mahabharata, Bhagavad Gita, and Shrimad Bhagavata',
+            'No mobile phones or electronic gadgets allowed',
+            'No replacement of team members after registration',
+            'Tie-breaker: 3 additional questions for final selection',
+            'Judges\' decision will be final and binding'
+        ],
+        'venue': 'Library (Preliminary) & Research Lab (Final)',
+        'college': 'Dr. B. B. Hegde First Grade College, Kundapur',
+        'coordinator': 'Mr. Pranam B, Department of Computer Applications',
+        'registration_deadline': '07/09/2025',
+        'notice_date': '03/09/2025',
+        'college_phone': '20000-576201',
+        'team_size': '2 members per team',
+        'rounds': 'Preliminary and Final',
+        'preliminary_duration': '60 minutes for 30 questions',
+        'final_format': 'Fastest Finger First',
+        'topics': 'Krishna\'s life, Mahabharata, Bhagavad Gita, Shrimad Bhagavata',
+        'Google_form': 'https://docs.google.com/forms/d/e/1FAIpQLSf1Jv-Wt4u3cxpGldrBML_2hZv6ebPmDB-23a8P63x2c98D-A/viewform?usp=header'
+    },
+    {
+        'id': 6,
+        'title': 'Shloka/Bhagavad Gita Recitation Competition',
+        'description': 'Recite verses from the Bhagavad Gita or Puranas with correct pronunciation and rhythm. Demonstrate your understanding of Sanskrit verses and their meanings.',
+        'date': '10-09-2025',
+        'time': '3:15 PM',
+        'location': 'A. V. Hall, Dr. B. B. Hegde First Grade College, Kundapur',
+        'image': 'krishna2.jfif',
+        'category': 'Devotional',
+        'rules': [
+            'Pronunciation and rhythm must be correct',
+            'Time limit: 2 minutes',
+            'Extra marks for a verse with meaning',
+            'The decision of the judges is final'
+        ],
+        'venue': 'A. V. Hall',
+        'college': 'Dr. B. B. Hegde First Grade College, Kundapur',
+        'coordinator': 'Mrs. Jayalakshmi K., Professor, Department of Computer Science',
+        'registration_deadline': '08/09/2025',
+        'notice_date': '01/09/2025',
+        'college_phone': '20000-576201',
+        'duration': '2 minutes',
+        'contest_theme': 'Recitation of Gita or Purana verses',
+        'scoring_criteria': 'Pronunciation, rhythm, and meaning explanation',
+        'Google_form': 'https://docs.google.com/forms/d/e/1FAIpQLSfRv3I5d9HASnAlUhqWwbKG_OLOjIJKRYta3djFyHM_dEW7eg/viewform?usp=header'
     }
 ]
 
