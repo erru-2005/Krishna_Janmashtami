@@ -60,6 +60,31 @@ events = [
         'duration': '1 hour 15 minutes',
         'paper_size': 'A4/A5 size',
         'materials_allowed': 'Colored pens, crayons, watercolors, decorative materials'
+    },
+    {
+        'id': 3,
+        'title': 'Krishna Balalile or Mythological Storytelling Competition',
+        'description': 'Narrating Krishna\'s childhood plays or mythological stories with expression, voice modulation, and clarity. Share the divine tales of Lord Krishna through engaging storytelling.',
+        'date': '08-09-2025',
+        'time': '11:00 AM',
+        'location': 'Room Number: 110, Dr. B. B. Hegde First Grade College, Kundapur',
+        'image': 'krishna2.jfif',
+        'category': 'Cultural',
+        'rules': [
+            'Time limit: 5 minutes',
+            'Story must be scripture-based',
+            'Expression, voice, and clarity will be considered in scoring',
+            'The decision of the judges is final'
+        ],
+        'venue': 'Room Number: 110',
+        'college': 'Dr. B. B. Hegde First Grade College, Kundapur',
+        'coordinator': 'Shri Harish Kanchan, Assistant Professor, Department of Computer Application',
+        'registration_deadline': '05/08/2025',
+        'notice_date': '02/09/2025',
+        'college_phone': '20000-576201',
+        'duration': '5 minutes',
+        'story_type': 'Scripture-based Krishna stories',
+        'scoring_criteria': 'Expression, voice modulation, clarity'
     }
 ]
 
