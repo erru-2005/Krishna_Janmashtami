@@ -45,7 +45,7 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body text-center p-5">
-                        <i class="fas fa-om krishna-icon mb-3" style="font-size: 4rem;"></i>
+                        <img src="{{ url_for('static', filename='images/image-removebg-preview.png') }}" alt="Baby Krishna" class="krishna-image mb-3" style="width: 120px; height: 120px; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2)); transition: transform 0.3s ease;">
                         <h4 class="card-title">Divine Celebrations</h4>
                         <p class="card-text">Experience the spiritual atmosphere filled with bhajans, prayers, and cultural performances dedicated to Lord Krishna.</p>
                         <a href="{{ url_for('about') }}" class="btn btn-primary">Learn More</a>
@@ -71,28 +71,32 @@
                     <p class="text-muted">Evening devotional songs and bhajans</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="text-center">
-                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                        <i class="fas fa-theater-masks text-white" style="font-size: 2rem;"></i>
-                    </div>
-                    <h5>Krishna Leela</h5>
-                    <p class="text-muted">Dramatic presentations of divine pastimes</p>
-                </div>
-            </div>
+           
+           
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="text-center">
                     <div class="bg-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                        <i class="fas fa-hand-holding-heart text-white" style="font-size: 2rem;"></i>
+                        <i class="fas fa-book-open text-white" style="font-size: 2rem;"></i>
                     </div>
-                    <h5>Dahi Handi</h5>
-                    <p class="text-muted">Traditional pot-breaking ceremony</p>
+                    <h5>Shloka / Bhagavad Gita Recitation</h5>
+                    <p class="text-muted">Reciting verses from the Gita or Puranas</p>
                 </div>
             </div>
+            
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-microphone text-white" style="font-size: 2rem;"></i>
+                    </div>
+                    <h5>Storytelling</h5>
+                    <p class="text-muted">Narrating Krishna's childhood plays or mythological stories</p>
+                </div>
+            </div>
+            
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="text-center">
                     <div class="bg-info rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                        <i class="fas fa-utensils text-white" style="font-size: 2rem;"></i>
+                        <i class="fas fa-gift text-white" style="font-size: 2rem;"></i>
                     </div>
                     <h5>Prasad Distribution</h5>
                     <p class="text-muted">Blessed food for all devotees</p>
