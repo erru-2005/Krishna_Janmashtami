@@ -37,12 +37,61 @@
             font-weight: 700;
             color: var(--primary-color) !important;
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .krishna-logo {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .krishna-logo:hover {
+            transform: scale(1.1);
         }
         
         /* Responsive navbar brand */
         @media (max-width: 575.98px) {
             .navbar-brand {
                 font-size: 1.2rem !important;
+            }
+            .krishna-logo {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+        /* Small devices (landscape phones, 576px and up) */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .krishna-logo {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .krishna-logo {
+                width: 42px;
+                height: 42px;
+            }
+        }
+        
+        /* Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .krishna-logo {
+                width: 44px;
+                height: 44px;
+            }
+        }
+        
+        /* Extra large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            .krishna-logo {
+                width: 45px;
+                height: 45px;
             }
         }
         
@@ -209,41 +258,659 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
         
+        /* College Header Styles */
+        .college-header {
+            background: #000000;
+            height: 100vh;
+            padding: 0;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            width: 100vw;
+        }
+        
+        .college-header:hover {
+            background: linear-gradient(135deg, #000000 0%, #2a2a2a 25%, #3d3d3d 50%, #2a2a2a 75%, #000000 100%);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            border-bottom: 2px solid #555;
+        }
+        
+        .college-header.scrolled {
+            height: 70px;
+            padding: 0.8rem 0;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%, #000000 100%);
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .college-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FF6B35, #FFD700);
+        }
+        
+        .college-header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            padding: 0 2rem;
+            height: 100%;
+            position: relative;
+        }
+        
+        .college-logo {
+            height: 80px;
+            width: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 0;
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .college-logo:hover {
+            transform: translateY(-50%) scale(1.1);
+            filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+        }
+        
+        .college-info {
+            flex: 1;
+            text-align: left;
+            width: 100%;
+            max-width: none;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            margin-left: 6rem;
+            max-width: 900px;
+        }
+        
+        .college-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+        
+        .college-divider {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FF6B35, #FFD700);
+            margin: 1rem 0;
+            width: 100%;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+            animation: dividerFlow 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .college-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: dividerShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes dividerFlow {
+            0%, 100% { width: 100%; opacity: 0.6; }
+            50% { width: 100%; opacity: 1; }
+        }
+        
+        @keyframes dividerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .college-subtitle {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 0;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: left;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+        
+        /* Action Buttons Section */
+        .action-buttons-section {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #333;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .action-buttons-content {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .statistics-btn {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .statistics-btn:hover {
+            background: linear-gradient(135deg, #7c3aed, #5855eb);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, #059669, #2563eb);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        /* Report Modal Styles */
+        .report-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+        
+        .report-modal.hidden {
+            display: none;
+        }
+        
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+        }
+        
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            width: 20rem;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .modal-content.show {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #1f2937;
+        }
+        
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .blue-option {
+            background: #3b82f6;
+        }
+        
+        .blue-option:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+        
+        .green-option {
+            background: #10b981;
+        }
+        
+        .green-option:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+        
+        .modal-cancel-btn {
+            width: 100%;
+            background: #e5e7eb;
+            color: #374151;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-cancel-btn:hover {
+            background: #d1d5db;
+            transform: scale(1.02);
+        }
+        
+        /* Responsive Action Buttons */
+        @media (max-width: 767.98px) {
+            .action-buttons-section {
+                top: 65px;
+                padding: 0.6rem 0;
+            }
+            
+            .action-buttons-content {
+                gap: 0.6rem;
+                padding: 0 1rem;
+            }
+            
+            .action-btn {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .modal-content {
+                width: 18rem;
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .action-buttons-section {
+                top: 60px;
+                padding: 0.5rem 0;
+            }
+            
+            .action-buttons-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+                max-width: 250px;
+            }
+            
+            .modal-content {
+                width: 16rem;
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .action-buttons-section {
+                top: 55px;
+                padding: 0.4rem 0;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .action-buttons-section {
+                top: 50px;
+                padding: 0.3rem 0;
+            }
+        }
+        
+        /* Responsive College Header */
+        @media (max-width: 1400px) {
+            .college-info {
+                left: 1.5rem;
+                max-width: 500px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .college-title {
+                font-size: 1.1rem;
+            }
+            
+            .college-info {
+                left: 1rem;
+                max-width: 450px;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .college-header {
+                height: 70px;
+                padding: 0.8rem 0;
+            }
+            
+            .college-header.scrolled {
+                height: 60px;
+                padding: 0.6rem 0;
+            }
+            
+            .college-header-content {
+                gap: 1.2rem;
+                padding: 0 1rem;
+            }
+            
+            .college-logo {
+                height: 45px;
+                width: 45px;
+            }
+            
+            .college-title {
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+            
+            .college-subtitle {
+                font-size: 0.75rem;
+            }
+            
+            .college-info {
+                min-width: 220px;
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .college-header {
+                height: 100vh;
+                padding: 0;
+            }
+            
+            .college-header.scrolled {
+                height: 100vh;
+                padding: 0;
+            }
+            
+            .college-header-content {
+                padding: 0 1rem;
+                gap: 1rem;
+                width: 100%;
+            }
+            
+            .college-logo {
+                height: 60px;
+                width: 60px;
+                left: 1rem;
+            }
+            
+            .college-info {
+                padding: 1.5rem;
+                margin-left: 4rem;
+                width: 100%;
+                max-width: none;
+            }
+            
+            .college-title {
+                font-size: 1.3rem;
+                margin: 0 0 0.8rem 0;
+            }
+            
+            .college-divider {
+                margin: 0.8rem 0;
+                width: 100%;
+            }
+            
+            .college-subtitle {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .college-header {
+                height: 100vh;
+                padding: 0;
+            }
+            
+            .college-header.scrolled {
+                height: 100vh;
+                padding: 0;
+            }
+            
+            .college-header-content {
+                padding: 0 0.5rem;
+                gap: 0.8rem;
+                width: 100%;
+            }
+            
+            .college-logo {
+                height: 50px;
+                width: 50px;
+                left: 0.5rem;
+            }
+            
+            .college-info {
+                padding: 1rem;
+                margin-left: 3rem;
+                width: 100%;
+                max-width: none;
+            }
+            
+            .college-title {
+                font-size: 1.1rem;
+                margin: 0 0 0.6rem 0;
+            }
+            
+            .college-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .college-divider {
+                width: 100%;
+                margin: 0.6rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .college-header {
+                height: 55px;
+                padding: 0.5rem 0;
+            }
+            
+            .college-header.scrolled {
+                height: 45px;
+                padding: 0.3rem 0;
+            }
+            
+            .college-header-content {
+                gap: 0.6rem;
+                padding: 0 0.2rem;
+            }
+            
+            .college-logo {
+                height: 30px;
+                width: 30px;
+            }
+            
+            .college-title {
+                font-size: 0.75rem;
+                margin: 0 0 0.2rem 0;
+            }
+            
+            .college-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .college-divider {
+                width: 85%;
+                margin: 0.3rem auto;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .college-header {
+                height: 50px;
+                padding: 0.4rem 0;
+            }
+            
+            .college-header.scrolled {
+                height: 40px;
+                padding: 0.2rem 0;
+            }
+            
+            .college-logo {
+                height: 25px;
+                width: 25px;
+            }
+            
+            .college-title {
+                font-size: 0.7rem;
+            }
+            
+            .college-subtitle {
+                font-size: 0.55rem;
+            }
+        }
+        
+        /* Landscape orientation for mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .college-header {
+                height: 60px;
+                padding: 0.4rem 0;
+            }
+            
+            .college-header.scrolled {
+                height: 50px;
+                padding: 0.3rem 0;
+            }
+            
+            .college-logo {
+                height: 35px;
+                width: 35px;
+            }
+            
+            .college-title {
+                font-size: 0.8rem;
+                margin: 0 0 0.2rem 0;
+            }
+            
+            .college-subtitle {
+                font-size: 0.6rem;
+            }
+        }
+ 
+
 
     </style>
     
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <!-- College Header -->
+    <div class="college-header">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('home') }}">
-                <i class="fas fa-om krishna-icon"></i> Krishna Janmashtami
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('events_page') }}">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a>
-                    </li>
-                                         <li class="nav-item">
-                         <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                     </li>
-                </ul>
+            <div class="college-header-content">
+                <img
+                    src="{{ url_for('static', filename='images/logo-removebg-preview.png') }}"
+                    alt="College Logo"
+                    class="college-logo"
+                />
+                <div class="college-info">
+                    <h1 class="college-title">
+                        Dr. B. B. Hegde First Grade College, Kundapura
+                    </h1>
+                    <hr class="college-divider">
+                    <p class="college-subtitle">
+                        A Unit of Coondapur Education Society (R)
+                    </p>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Action Buttons Section -->
+    <div class="action-buttons-section">
+        <div class="container">
+            <div class="action-buttons-content">
+               
+                <!-- Download Report Button -->
+              
+            </div>
+        </div>
+    </div>
+
+ 
+
+            <!-- Cancel Button -->
+    
+    </div>
+
+    <!-- Navigation Bar -->
+   
+
+
 
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -260,15 +927,46 @@
     {% endwith %}
 
     <!-- Main Content -->
-    <main style="margin-top: 80px;">
+    <main style="margin-top: 100vh;">
         {% block content %}{% endblock %}
     </main>
     
     <style>
         /* Responsive main content */
+        @media (max-width: 991.98px) {
+            main {
+                margin-top: 100vh !important;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            main {
+                margin-top: 100vh !important;
+            }
+        }
+        
         @media (max-width: 575.98px) {
             main {
-                margin-top: 70px !important;
+                margin-top: 100vh !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                margin-top: 100vh !important;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            main {
+                margin-top: 100vh !important;
+            }
+        }
+        
+        /* Landscape orientation for mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            main {
+                margin-top: 100vh !important;
             }
         }
     </style>
@@ -287,6 +985,59 @@
     
     <!-- Custom JavaScript -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <script>
+        // College header scroll behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            const collegeHeader = document.querySelector('.college-header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    collegeHeader.classList.add('scrolled');
+                } else {
+                    collegeHeader.classList.remove('scrolled');
+                }
+            });
+        });
+        
+        // Report Modal Functions
+        function openReportModal() {
+            const modal = document.getElementById('reportModal');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.add('show');
+            }, 10);
+        }
+        
+        function closeReportModal() {
+            const modal = document.getElementById('reportModal');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            modalContent.classList.remove('show');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+        
+        // Close modal when clicking outside
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('reportModal');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeReportModal();
+                }
+            });
+        });
+        
+        // Show coming soon message
+        function showComingSoon(feature) {
+            alert(`🚧 ${feature} - Coming Soon!\n\nThis feature is currently under development and will be available soon.`);
+        }
+    </script>
     
     {% block extra_js %}{% endblock %}
 </body>
