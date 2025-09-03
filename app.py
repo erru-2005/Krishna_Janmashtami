@@ -81,7 +81,7 @@ events = [
         ],
         'venue': 'Room Number: 110',
         'college': 'Dr. B. B. Hegde First Grade College, Kundapur',
-        'coordinator': 'Shri Harish Kanchan, Assistant Professor, Department of Computer Application',
+        'coordinator': 'Mr. Harish Kanchan<br>Assistant Professor<br>Department of Computer Application',
         'registration_deadline': '05/08/2025',
         'notice_date': '02/09/2025',
         'college_phone': '20000-576201',

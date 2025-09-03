@@ -241,7 +241,7 @@
                                 <h6 class="text-primary">Coordinator</h6>
                                 <p class="mb-2">
                                     <i class="fas fa-user-tie me-2 text-success"></i>
-                                    <strong>{{ event.coordinator }}</strong>
+                                    <strong>{{ event.coordinator | safe }}</strong>
                                 </p>
                             </div>
                            
@@ -258,7 +258,7 @@
                 <div class="card mb-4 border-0 shadow-lg sticky-top sticky-registration" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
                     <div class="card-body text-center p-4">
                         <h5 class="card-title mb-3 text-primary">Join This Competition</h5>
-                        <p class="text-muted mb-4">Register now to secure your team's spot in this devotional competition</p>
+                        <p class="text-muted mb-4">Register now to secure your  spot in this devotional competition</p>
                         
                         <div class="mb-4">
                             <div class="row text-center">
@@ -269,14 +269,14 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <h4 class="text-warning fw-bold">Team</h4>
+                                    <h4 class="text-warning fw-bold">Individual</h4>
                                     <small class="text-muted">Format</small>
                                 </div>
                             </div>
                         </div>
                         
                         <a href="{{ event.Google_form }}" class="btn btn-primary btn-lg w-100 mb-3">
-                            <i class="fas fa-user-plus"></i> Register Team
+                            <i class="fas fa-user-plus"></i> Register Now
                         </a>
                         
                         <small class="text-muted">
@@ -295,8 +295,8 @@
 <!-- Call to Action Section -->
 <section class="py-5 text-center text-white">
     <div class="container">
-        <h3 class="mb-4">Ready to Showcase Your Devotional Talent?</h3>
-        <p class="lead mb-4">Join the Competition and celebrate Lord Krishna through divine music</p>
+        <h3 class="mb-4">Ready to narrate the divine tales of Shri Krishna?</h3>
+        <p class="lead mb-4">Share enchanting tales of Shri Krishna and let His divine leelas inspire everyone.</p>
         <a href="{{ event.Google_form }}" class="btn btn-light btn-lg px-5">
             Register Now
         </a>
