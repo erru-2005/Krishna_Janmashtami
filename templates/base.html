@@ -1266,16 +1266,7 @@
             
             <div class="college-right-section">
                 <nav class="nav-links">
-                    <div class="nav-link-item">
-                        <a href="{{ url_for('about') }}" class="nav-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            About
-                        </a>
-                    </div>
+                    
                     <div class="nav-link-item">
                         <a href="{{ url_for('home') }}" class="nav-link">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
@@ -1297,6 +1288,16 @@
                         </a>
                     </div>
                 </nav>
+                <div class="nav-link-item">
+                    <a href="{{ url_for('about') }}" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        About
+                    </a>
+                </div>
                 
                 <button class="mobile-menu-toggle" onmouseenter="openMobileMenu()" onmouseleave="closeMobileMenu()">
                     <i class="fas fa-bars"></i>
