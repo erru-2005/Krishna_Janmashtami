@@ -59,14 +59,28 @@
 }
 
 /* Ensure Coming Soon modal appears centered and above header */
-#comingSoonModal { z-index: 2000; }
+#comingSoonModal { 
+    z-index: 2000; 
+}
+
 #comingSoonModal .modal-dialog { 
     max-width: 90vw; 
     width: 400px;
     margin: 1.75rem auto;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 3.5rem);
 }
-#comingSoonModal .modal-content { border-radius: 0.75rem; }
-.modal-backdrop.show { z-index: 1990; }
+
+#comingSoonModal .modal-content { 
+    border-radius: 0.75rem; 
+    width: 100%;
+    margin: auto;
+}
+
+.modal-backdrop.show { 
+    z-index: 1990; 
+}
 
 /* Fix: override global styles that set Bootstrap .modal-content to opacity:0 */
 #comingSoonModal .modal-content {
@@ -79,7 +93,16 @@
     #comingSoonModal .modal-dialog {
         max-width: 95vw;
         width: 95vw;
-        margin: 1rem;
+        margin: 0.5rem;
+        min-height: calc(100vh - 1rem);
+    }
+    
+    #comingSoonModal .modal-content {
+        font-size: 0.9rem;
+    }
+    
+    #comingSoonModal .modal-title {
+        font-size: 1.1rem;
     }
 }
 
@@ -87,6 +110,15 @@
     #comingSoonModal .modal-dialog {
         max-width: 90vw;
         width: 90vw;
+        margin: 1rem auto;
+        min-height: calc(100vh - 2rem);
+    }
+}
+
+@media (max-width: 991.98px) {
+    #comingSoonModal .modal-dialog {
+        max-width: 85vw;
+        width: 85vw;
         margin: 1.5rem auto;
     }
 }
@@ -182,29 +214,27 @@
     </div>
 <!-- Coming Soon Modal -->
 <div class="modal fade" id="comingSoonModal" tabindex="-1" aria-hidden="true" aria-labelledby="comingSoonTitle">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
-            <div class="modal-header border-0 pb-0">
-                <h5 class="modal-title fw-bold text-primary" id="comingSoonTitle">
+            <div class="modal-header border-0 pb-0 text-center">
+                <h5 class="modal-title fw-bold text-primary w-100" id="comingSoonTitle">
                     <i class="fas fa-clock text-warning me-2"></i>Coming Soon
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal" aria-label="Close" style="right: 1rem; top: 1rem;"></button>
             </div>
-            <div class="modal-body px-4 py-3">
-                <div class="text-center">
-                    <i class="fas fa-info-circle text-info mb-3" style="font-size: 2.5rem;"></i>
-                    <p class="mb-0 fs-5">Most events will open soon.</p>
-                    <p class="mb-0 text-muted">Only the <strong class="text-success">Story Telling</strong> event is open for registration right now.</p>
-                </div>
+            <div class="modal-body px-4 py-3 text-center">
+                <i class="fas fa-info-circle text-info mb-3" style="font-size: 2.5rem;"></i>
+                <p class="mb-0 fs-5">Most events will open soon.</p>
+                <p class="mb-0 text-muted">Only the <strong class="text-success">Story Telling</strong> event is open for registration right now.</p>
             </div>
-            <div class="modal-footer border-0 pt-0">
+            <div class="modal-footer border-0 pt-0 justify-content-center">
                 <button type="button" class="btn btn-primary px-4 py-2" data-bs-dismiss="modal">
                     <i class="fas fa-check me-2"></i>Got it!
                 </button>
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 </section>
 
