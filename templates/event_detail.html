@@ -79,6 +79,24 @@
     color: #764ba2;
     text-decoration: underline;
 }
+
+/* Ensure sticky sidebar card does not overlap the fixed header */
+.sticky-registration {
+    top: 140px;
+    z-index: 999; /* stay below header (1000) but above content */
+}
+
+@media (max-width: 991.98px) {
+    .sticky-registration { top: 135px; }
+}
+
+@media (max-width: 767.98px) {
+    .sticky-registration { top: 130px; }
+}
+
+@media (max-width: 575.98px) {
+    .sticky-registration { top: 130px; }
+}
 </style>
 
 <div class="event-detail-page" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
@@ -231,55 +249,13 @@
                     </div>
                 </div>
 
-                <!-- Event Schedule Card -->
-                <div class="card mb-4 border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
-                    <div class="card-body p-4">
-                        <h4 class="card-title mb-4 text-info">
-                            <i class="fas fa-clock me-2"></i>Event Schedule
-                        </h4>
-                        <div class="timeline">
-                            <div class="row mb-3">
-                                <div class="col-md-3">
-                                    <strong class="text-primary">{{ event.time }}</strong>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="border-start border-primary ps-3">
-                                        <h6>Competition Begins</h6>
-                                        <p class="text-muted mb-0">Opening ceremony and welcome address</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-3">
-                                    <strong class="text-primary">3:30 PM</strong>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="border-start border-primary ps-3">
-                                        <h6>Bhajan/Kirtan Performances</h6>
-                                        <p class="text-muted mb-0">Teams perform their devotional songs</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <strong class="text-primary">5:00 PM</strong>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="border-start border-primary ps-3">
-                                        <h6>Results & Closing</h6>
-                                        <p class="text-muted mb-0">Judgment announcement and closing ceremony</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             
             <!-- Sidebar -->
             <div class="col-lg-4">
                 <!-- Registration Card -->
-                <div class="card mb-4 border-0 shadow-lg sticky-top" style="top: 100px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                <div class="card mb-4 border-0 shadow-lg sticky-top sticky-registration" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
                     <div class="card-body text-center p-4">
                         <h5 class="card-title mb-3 text-primary">Join This Competition</h5>
                         <p class="text-muted mb-4">Register now to secure your team's spot in this devotional competition</p>
@@ -310,33 +286,7 @@
                 </div>
                 
                 <!-- Quick Info Card -->
-                <div class="card border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
-                    <div class="card-body p-4">
-                        <h6 class="card-title mb-3 text-primary">Quick Information</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-3">
-                                <i class="fas fa-users text-primary me-2"></i>
-                                <strong>Team Size:</strong> 3-5 members
-                            </li>
-                            <li class="mb-3">
-                                <i class="fas fa-clock text-primary me-2"></i>
-                                <strong>Duration:</strong> 3+1 minutes
-                            </li>
-                            <li class="mb-3">
-                                <i class="fas fa-music text-primary me-2"></i>
-                                <strong>Instruments:</strong> Allowed
-                            </li>
-                            <li class="mb-3">
-                                <i class="fas fa-graduation-cap text-primary me-2"></i>
-                                <strong>Open to:</strong> All students
-                            </li>
-                            <li class="mb-3">
-                                <i class="fas fa-trophy text-primary me-2"></i>
-                                <strong>Format:</strong> Group competition
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -346,9 +296,9 @@
 <section class="py-5 text-center text-white">
     <div class="container">
         <h3 class="mb-4">Ready to Showcase Your Devotional Talent?</h3>
-        <p class="lead mb-4">Join the Bhajane/Keertane Competition and celebrate Lord Krishna through divine music</p>
+        <p class="lead mb-4">Join the Competition and celebrate Lord Krishna through divine music</p>
         <a href="{{ event.Google_form }}" class="btn btn-light btn-lg px-5">
-            Register Your Team Now
+            Register Now
         </a>
     </div>
 </section>

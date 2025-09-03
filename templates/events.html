@@ -57,6 +57,39 @@
     transform: translateY(-2px) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
 }
+
+/* Ensure Coming Soon modal appears centered and above header */
+#comingSoonModal { z-index: 2000; }
+#comingSoonModal .modal-dialog { 
+    max-width: 90vw; 
+    width: 400px;
+    margin: 1.75rem auto;
+}
+#comingSoonModal .modal-content { border-radius: 0.75rem; }
+.modal-backdrop.show { z-index: 1990; }
+
+/* Fix: override global styles that set Bootstrap .modal-content to opacity:0 */
+#comingSoonModal .modal-content {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 575.98px) {
+    #comingSoonModal .modal-dialog {
+        max-width: 95vw;
+        width: 95vw;
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #comingSoonModal .modal-dialog {
+        max-width: 90vw;
+        width: 90vw;
+        margin: 1.5rem auto;
+    }
+}
 </style>
 
 <div class="events-page" style="background-image: url('{{ url_for('static', filename='images/krishna2.jfif') }}'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
@@ -84,7 +117,7 @@
                 <div class="card h-100 event-card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-start mb-3">
-                            <span class="badge bg-primary">{{ event.category }}</span>
+                          
                             <div class="text-end">
                                 <div class="fw-bold text-primary">{{ event.date }}</div>
                                 <small class="text-muted">{{ event.time }}</small>
@@ -108,10 +141,10 @@
                         </div>
                         
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="{{ url_for('event_detail', event_id=event.id) }}" class="btn btn-outline-dark btn-sm">
+                            <a href="{{ url_for('event_detail', event_id=event.id) }}" class="btn btn-outline-dark btn-sm event-link" data-event-title="{{ event.title }}" data-link-type="details">
                                 <i class="fas fa-info-circle"></i> Details
                             </a>
-                            <a href="{{ event.Google_form }}" class="btn btn-primary btn-sm">
+                            <a href="{{ event.Google_form }}" class="btn btn-primary btn-sm event-link" data-event-title="{{ event.title }}" data-link-type="register">
                                 <i class="fas fa-user-plus"></i> Register
                             </a>
                         </div>
@@ -128,6 +161,32 @@
             <p class="text-muted">Try adjusting your search criteria or category filter.</p>
         </div>
     </div>
+<!-- Coming Soon Modal -->
+<div class="modal fade" id="comingSoonModal" tabindex="-1" aria-hidden="true" aria-labelledby="comingSoonTitle">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-primary" id="comingSoonTitle">
+                    <i class="fas fa-clock text-warning me-2"></i>Coming Soon
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4 py-3">
+                <div class="text-center">
+                    <i class="fas fa-info-circle text-info mb-3" style="font-size: 2.5rem;"></i>
+                    <p class="mb-0 fs-5">Most events will open soon.</p>
+                    <p class="mb-0 text-muted">Only the <strong class="text-success">Story Telling</strong> event is open for registration right now.</p>
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-primary px-4 py-2" data-bs-dismiss="modal">
+                    <i class="fas fa-check me-2"></i>Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+
 </section>
 
 <!-- Call to Action -->
@@ -169,6 +228,47 @@ document.getElementById('backToTop').addEventListener('click', function() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
+    });
+});
+
+// Intercept event card links to show coming soon modal except Story Telling
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('.event-link');
+    const comingSoonModalEl = document.getElementById('comingSoonModal');
+
+    function showComingSoon() {
+        if (comingSoonModalEl && typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+            // Ensure modal is attached to body for proper stacking and centering
+            if (!document.body.contains(comingSoonModalEl)) {
+                document.body.appendChild(comingSoonModalEl);
+            }
+            const modal = bootstrap.Modal.getOrCreateInstance(comingSoonModalEl, { backdrop: true, focus: true });
+            modal.show();
+        } else if (comingSoonModalEl) {
+            // Bootstrap not ready yet; wait until full page load then show
+            window.addEventListener('load', function() {
+                if (!document.body.contains(comingSoonModalEl)) {
+                    document.body.appendChild(comingSoonModalEl);
+                }
+                const modal = (typeof bootstrap !== 'undefined' && bootstrap.Modal)
+                    ? bootstrap.Modal.getOrCreateInstance(comingSoonModalEl, { backdrop: true, focus: true })
+                    : null;
+                if (modal) modal.show(); else alert('Most events will open soon. Only the Story Telling event is open for registration.');
+            }, { once: true });
+        } else {
+            alert('Most events will open soon. Only the Story Telling event is open for registration.');
+        }
+    }
+
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const title = (this.getAttribute('data-event-title') || '').toLowerCase();
+            const isStory = title.includes('story') && title.includes('tell');
+            if (!isStory) {
+                e.preventDefault();
+                showComingSoon();
+            }
+        });
     });
 });
 </script>
