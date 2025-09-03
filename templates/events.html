@@ -90,6 +90,25 @@
         margin: 1.5rem auto;
     }
 }
+#backToTop {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4) !important;
+}
+
+#backToTop i {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
 </style>
 
 <div class="events-page" style="background-image: url('{{ url_for('static', filename='images/krishna2.jfif') }}'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">

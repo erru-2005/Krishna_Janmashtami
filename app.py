@@ -68,7 +68,7 @@ events = [
         'id': 3,
         'title': 'Krishna Balalile or Mythological Storytelling Competition',
         'description': 'Narrating Krishna\'s childhood plays or mythological stories with expression, voice modulation, and clarity. Share the divine tales of Lord Krishna through engaging storytelling.',
-        'date': '08-09-2025',
+        'date': '06-09-2025',
         'time': '11:00 AM',
         'location': 'Room Number: 110, Dr. B. B. Hegde First Grade College, Kundapur',
         'image': 'krishna2.jfif',
