@@ -3,39 +3,136 @@
 {% block title %}{{ event.title }} - Krishna Janmashtami 2025{% endblock %}
 
 {% block content %}
+<style>
+.event-detail-page a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.event-detail-page a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.event-detail-page .btn {
+    border-radius: 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-detail-page .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.event-detail-page .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.event-detail-page .btn:hover::before {
+    left: 100%;
+}
+
+.event-detail-page .breadcrumb a {
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.event-detail-page .breadcrumb a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+}
+
+.event-detail-page .card a {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.event-detail-page .card a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.event-detail-page .timeline a {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.event-detail-page .timeline a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+</style>
+
+<div class="event-detail-page" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
 <!-- Event Header -->
-<section class="py-5 bg-primary text-white">
+<section class="py-5 text-white">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url_for('home') }}" class="text-white">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ url_for('events_page') }}" class="text-white">Events</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ event.title }}</li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ url_for('home') }}" class="text-white">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 22V12H15V22" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ url_for('events_page') }}" class="text-white">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="#FF6B6B" stroke-width="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="8" y1="2" x2="8" y2="6" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="3" y1="10" x2="21" y2="10" stroke="#FF6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Events
+                            </a>
+                        </li>
+                        
                     </ol>
                 </nav>
                 
-                <div class="text-center">
-                    <span class="badge bg-light text-primary mb-3">{{ event.category }}</span>
-                    <h1 class="display-4 fw-bold mb-4">{{ event.title }}</h1>
+                <div class="text-center mt-5">
+                    
+                    <h1 class="display-4 fw-bold mb-4 text-white">{{ event.title }}</h1>
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <i class="fas fa-calendar-alt me-2"></i>
-                                <span>{{ event.date }}</span>
+                                <i class="fas fa-calendar-alt me-2 text-warning"></i>
+                                <span class="fs-5">{{ event.date }}</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <i class="fas fa-clock me-2"></i>
-                                <span>{{ event.time }}</span>
+                                <i class="fas fa-clock me-2 text-warning"></i>
+                                <span class="fs-5">{{ event.time }}</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <i class="fas fa-map-marker-alt me-2"></i>
-                                <span>{{ event.location }}</span>
+                                <i class="fas fa-map-marker-alt me-2 text-warning"></i>
+                                <span class="fs-5">{{ event.venue }}</span>
                             </div>
                         </div>
                     </div>
@@ -51,112 +148,126 @@
         <div class="row">
             <!-- Main Content -->
             <div class="col-lg-8">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h3 class="card-title mb-4">Event Description</h3>
+                <!-- Event Description Card -->
+                <div class="card mb-4 border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4 text-primary">
+                            <i class="fas fa-info-circle me-2"></i>Event Description
+                        </h3>
                         <p class="lead mb-4">{{ event.description }}</p>
                         
                         <div class="row mb-4">
                             <div class="col-md-6">
-                                <h5><i class="fas fa-calendar-alt text-primary"></i> Date & Time</h5>
+                                <h5 class="text-primary">
+                                    <i class="fas fa-calendar-alt me-2"></i>Date & Time
+                                </h5>
                                 <p class="mb-3">
                                     <strong>Date:</strong> {{ event.date }}<br>
                                     <strong>Time:</strong> {{ event.time }}
                                 </p>
                             </div>
                             <div class="col-md-6">
-                                <h5><i class="fas fa-map-marker-alt text-primary"></i> Venue</h5>
+                                <h5 class="text-primary">
+                                    <i class="fas fa-map-marker-alt me-2"></i>Venue
+                                </h5>
                                 <p class="mb-3">
-                                    <strong>Location:</strong> {{ event.location }}
+                                    <strong>Location:</strong> {{ event.venue }}<br>
+                                    <strong>College:</strong> {{ event.college }}
                                 </p>
                             </div>
                         </div>
-                        
-                        <div class="mb-4">
-                            <h5><i class="fas fa-tags text-primary"></i> Event Category</h5>
-                            <span class="badge bg-primary fs-6">{{ event.category }}</span>
-                        </div>
-                        
-                        <!-- Additional Information based on category -->
-                        {% if event.category == 'Devotional' %}
-                        <div class="alert alert-info">
-                            <h6><i class="fas fa-info-circle"></i> Devotional Event Information</h6>
-                            <ul class="mb-0">
-                                <li>Please arrive 15 minutes before the scheduled time</li>
-                                <li>Traditional attire is recommended but not mandatory</li>
-                                <li>Photography is allowed during specific segments</li>
-                                <li>Prasad will be distributed after the event</li>
-                            </ul>
-                        </div>
-                        {% elif event.category == 'Cultural' %}
-                        <div class="alert alert-success">
-                            <h6><i class="fas fa-info-circle"></i> Cultural Event Information</h6>
-                            <ul class="mb-0">
-                                <li>Traditional costumes and decorations will be featured</li>
-                                <li>Interactive participation is encouraged</li>
-                                <li>Cultural performances by local artists</li>
-                                <li>Traditional refreshments will be served</li>
-                            </ul>
-                        </div>
-                        {% elif event.category == 'Entertainment' %}
-                        <div class="alert alert-warning">
-                            <h6><i class="fas fa-info-circle"></i> Entertainment Event Information</h6>
-                            <ul class="mb-0">
-                                <li>Professional sound and lighting arrangements</li>
-                                <li>Seating will be provided for all attendees</li>
-                                <li>Recording and photography may be restricted</li>
-                                <li>Refreshments available during intermission</li>
-                            </ul>
-                        </div>
-                        {% elif event.category == 'Community' %}
-                        <div class="alert alert-info">
-                            <h6><i class="fas fa-info-circle"></i> Community Event Information</h6>
-                            <ul class="mb-0">
-                                <li>Open to all community members</li>
-                                <li>Volunteer opportunities available</li>
-                                <li>Community bonding and networking</li>
-                                <li>Free participation for all attendees</li>
-                            </ul>
-                        </div>
-                        {% endif %}
                     </div>
                 </div>
-                
-                <!-- Event Schedule -->
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h4 class="card-title mb-4">Event Schedule</h4>
+
+                <!-- Competition Rules Card -->
+                <div class="card mb-4 border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-4 text-success">
+                            <i class="fas fa-list-check me-2"></i>Contest Rules
+                        </h4>
+                        <div class="row">
+                            {% for rule in event.rules %}
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-check-circle text-success me-2 mt-1"></i>
+                                    <span>{{ rule }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Information Card -->
+                <div class="card mb-4 border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-4 text-warning">
+                            <i class="fas fa-exclamation-triangle me-2"></i>Important Information
+                        </h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h6 class="text-primary">Registration Deadline</h6>
+                                <p class="mb-2">
+                                    <i class="fas fa-calendar-times me-2 text-danger"></i>
+                                    <strong>{{ event.registration_deadline }}</strong>
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h6 class="text-primary">Notice Date</h6>
+                                <p class="mb-2">
+                                    <i class="fas fa-bullhorn me-2 text-info"></i>
+                                    <strong>{{ event.notice_date }}</strong>
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h6 class="text-primary">Coordinator</h6>
+                                <p class="mb-2">
+                                    <i class="fas fa-user-tie me-2 text-success"></i>
+                                    <strong>{{ event.coordinator }}</strong>
+                                </p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Schedule Card -->
+                <div class="card mb-4 border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-4 text-info">
+                            <i class="fas fa-clock me-2"></i>Event Schedule
+                        </h4>
                         <div class="timeline">
                             <div class="row mb-3">
                                 <div class="col-md-3">
-                                    <strong>{{ event.time }}</strong>
+                                    <strong class="text-primary">{{ event.time }}</strong>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="border-start border-primary ps-3">
-                                        <h6>Event Begins</h6>
+                                        <h6>Competition Begins</h6>
                                         <p class="text-muted mb-0">Opening ceremony and welcome address</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-3">
-                                    <strong>{{ event.time.split(':')[0] }}:{{ (event.time.split(':')[1]|int + 30)|stringformat:"02d" }}</strong>
+                                    <strong class="text-primary">3:30 PM</strong>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="border-start border-primary ps-3">
-                                        <h6>Main Program</h6>
-                                        <p class="text-muted mb-0">Main event activities and performances</p>
+                                        <h6>Bhajan/Kirtan Performances</h6>
+                                        <p class="text-muted mb-0">Teams perform their devotional songs</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <strong>{{ event.time.split(':')[0] }}:{{ (event.time.split(':')[1]|int + 90)|stringformat:"02d" }}</strong>
+                                    <strong class="text-primary">5:00 PM</strong>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="border-start border-primary ps-3">
-                                        <h6>Closing</h6>
-                                        <p class="text-muted mb-0">Closing ceremony and prasad distribution</p>
+                                        <h6>Results & Closing</h6>
+                                        <p class="text-muted mb-0">Judgment announcement and closing ceremony</p>
                                     </div>
                                 </div>
                             </div>
@@ -168,60 +279,60 @@
             <!-- Sidebar -->
             <div class="col-lg-4">
                 <!-- Registration Card -->
-                <div class="card mb-4 sticky-top" style="top: 100px;">
-                    <div class="card-body text-center">
-                        <h5 class="card-title mb-3">Join This Event</h5>
-                        <p class="text-muted mb-4">Register now to secure your spot for this special celebration</p>
+                <div class="card mb-4 border-0 shadow-lg sticky-top" style="top: 100px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title mb-3 text-primary">Join This Competition</h5>
+                        <p class="text-muted mb-4">Register now to secure your team's spot in this devotional competition</p>
                         
                         <div class="mb-4">
                             <div class="row text-center">
                                 <div class="col-6">
                                     <div class="border-end">
-                                        <h4 class="text-primary fw-bold">Free</h4>
+                                        <h4 class="text-success fw-bold">Free</h4>
                                         <small class="text-muted">Entry</small>
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <h4 class="text-primary fw-bold">Open</h4>
-                                    <small class="text-muted">Registration</small>
+                                    <h4 class="text-warning fw-bold">Team</h4>
+                                    <small class="text-muted">Format</small>
                                 </div>
                             </div>
                         </div>
                         
-                        <a href="{{ url_for('register') }}?event_id={{ event.id }}" class="btn btn-primary btn-lg w-100 mb-3">
-                            <i class="fas fa-user-plus"></i> Register Now
+                        <a href="{{ event.Google_form }}" class="btn btn-primary btn-lg w-100 mb-3">
+                            <i class="fas fa-user-plus"></i> Register Team
                         </a>
                         
                         <small class="text-muted">
-                            <i class="fas fa-info-circle"></i> Registration is free and open to all
+                            <i class="fas fa-info-circle"></i> Registration deadline: {{ event.registration_deadline }}
                         </small>
                     </div>
                 </div>
                 
-                <!-- Quick Info -->
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title mb-3">Quick Information</h6>
+                <!-- Quick Info Card -->
+                <div class="card border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);">
+                    <div class="card-body p-4">
+                        <h6 class="card-title mb-3 text-primary">Quick Information</h6>
                         <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <i class="fas fa-clock text-primary me-2"></i>
-                                Duration: ~2 hours
-                            </li>
-                            <li class="mb-2">
+                            <li class="mb-3">
                                 <i class="fas fa-users text-primary me-2"></i>
-                                Capacity: Unlimited
+                                <strong>Team Size:</strong> 3-5 members
                             </li>
-                            <li class="mb-2">
-                                <i class="fas fa-parking text-primary me-2"></i>
-                                Parking: Available
+                            <li class="mb-3">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <strong>Duration:</strong> 3+1 minutes
                             </li>
-                            <li class="mb-2">
-                                <i class="fas fa-wheelchair text-primary me-2"></i>
-                                Accessibility: Wheelchair friendly
+                            <li class="mb-3">
+                                <i class="fas fa-music text-primary me-2"></i>
+                                <strong>Instruments:</strong> Allowed
                             </li>
-                            <li class="mb-2">
-                                <i class="fas fa-camera text-primary me-2"></i>
-                                Photography: Allowed
+                            <li class="mb-3">
+                                <i class="fas fa-graduation-cap text-primary me-2"></i>
+                                <strong>Open to:</strong> All students
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-trophy text-primary me-2"></i>
+                                <strong>Format:</strong> Group competition
                             </li>
                         </ul>
                     </div>
@@ -231,29 +342,15 @@
     </div>
 </section>
 
-<!-- Related Events -->
-<section class="py-5 bg-light">
+<!-- Call to Action Section -->
+<section class="py-5 text-center text-white">
     <div class="container">
-        <h3 class="text-center mb-5">Other Events You Might Like</h3>
-        <div class="row">
-            {% for i in range(3) %}
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <span class="badge bg-primary mb-2">Sample Event</span>
-                        <h5 class="card-title">Sample Event Title</h5>
-                        <p class="card-text text-muted">Brief description of the sample event that might interest attendees.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
-                                <i class="fas fa-calendar"></i> Sep 14, 2025
-                            </small>
-                            <a href="#" class="btn btn-outline-primary btn-sm">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+        <h3 class="mb-4">Ready to Showcase Your Devotional Talent?</h3>
+        <p class="lead mb-4">Join the Bhajane/Keertane Competition and celebrate Lord Krishna through divine music</p>
+        <a href="{{ event.Google_form }}" class="btn btn-light btn-lg px-5">
+            Register Your Team Now
+        </a>
     </div>
 </section>
+</div>
 {% endblock %}

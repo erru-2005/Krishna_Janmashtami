@@ -3,16 +3,72 @@
 {% block title %}Events - Krishna Janmashtami 2025{% endblock %}
 
 {% block content %}
-<div class="events-page">
+<style>
+.event-card {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.event-card:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.event-card .card-body {
+    color: white !important;
+}
+
+.event-card .card-title {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.event-card .card-text {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.event-card .badge {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.event-card .text-primary {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.event-card .text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.event-card .btn {
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.event-card .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+</style>
+
+<div class="events-page" style="background-image: url('{{ url_for('static', filename='images/krishna2.jfif') }}'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat;">
 <!-- Page Header -->
-<section class="py-5 bg-primary text-white">
+<section class="py-5 text-white">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
                 <h1 class="display-4 fw-bold mb-4">
                     <i class="fas fa-calendar-alt"></i> Krishna Janmashtami Events
                 </h1>
-                <p class="lead">Join us in celebrating the divine birth of Lord Krishna through various devotional and cultural events</p>
+                <p class="lead">Join us in celebrating the divine birth of Lord Krishna through devotional events</p>
             </div>
         </div>
     </div>
@@ -21,8 +77,6 @@
 <!-- Events Section -->
 <section class="py-5">
     <div class="container">
-
-
         <!-- Events Grid -->
         <div class="row" id="eventsContainer">
             {% for event in events %}
@@ -48,16 +102,16 @@
                             </div>
                             <div class="col-6">
                                 <small class="text-muted">
-                                    <i class="fas fa-map-marker-alt"></i> {{ event.location }}
+                                    <i class="fas fa-map-marker-alt"></i> {{ event.venue }}
                                 </small>
                             </div>
                         </div>
                         
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="{{ url_for('event_detail', event_id=event.id) }}" class="btn btn-outline-primary btn-sm">
+                            <a href="{{ url_for('event_detail', event_id=event.id) }}" class="btn btn-outline-dark btn-sm">
                                 <i class="fas fa-info-circle"></i> Details
                             </a>
-                            <a href="{{ url_for('register') }}?event_id={{ event.id }}" class="btn btn-primary btn-sm">
+                            <a href="{{ event.Google_form }}" class="btn btn-primary btn-sm">
                                 <i class="fas fa-user-plus"></i> Register
                             </a>
                         </div>
@@ -76,59 +130,48 @@
     </div>
 </section>
 
-<!-- Event Categories Info -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <h3 class="text-center mb-5">Event Categories</h3>
-        <div class="row">
-            <div class="col-md-3 mb-4">
-                <div class="text-center">
-                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fas fa-pray text-white"></i>
-                    </div>
-                    <h6>Devotional</h6>
-                    <small class="text-muted">Bhajans, prayers, and spiritual activities</small>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="text-center">
-                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fas fa-theater-masks text-white"></i>
-                    </div>
-                    <h6>Cultural</h6>
-                    <small class="text-muted">Traditional performances and celebrations</small>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="text-center">
-                    <div class="bg-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fas fa-music text-white"></i>
-                    </div>
-                    <h6>Entertainment</h6>
-                    <small class="text-muted">Drama, music, and cultural shows</small>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="text-center">
-                    <div class="bg-info rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fas fa-users text-white"></i>
-                    </div>
-                    <h6>Community</h6>
-                    <small class="text-muted">Community gatherings and activities</small>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Call to Action -->
 <section class="py-5">
-    <div class="container text-center">
-        <h3 class="mb-4">Ready to Join the Celebration?</h3>
-        <p class="lead mb-4">Register for your preferred events and be part of this divine celebration</p>
+    <div class="container text-center text-white">
+        <h2 class="display-5 fw-bold mb-4">
+            <i class="fas fa-om text-warning me-3"></i>
+            Celebrate the Divine Birth of Lord Krishna
+        </h2>
+        <p class="lead mb-4">
+            "Krishna Janmashtami is not just a festival; it's a celebration of divine love, wisdom, and the eternal message of the Bhagavad Gita."
+        </p>
+        <div class="p-3 my-3 bg-light border-start border-5 border-primary rounded text-dark inline">
+            <strong>Note:</strong> Competitions are available for registration.
+            
+        </div>
         
-    </div>
+       
+        </div>
 </section>
+
+<!-- Back to Top Arrow -->
+<button id="backToTop" class="btn btn-primary rounded-circle position-fixed" style="bottom: 30px; right: 30px; width: 60px; height: 60px; z-index: 1000; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+    <i class="fas fa-arrow-up fa-lg"></i>
+</button>
+
+<script>
+// Back to top functionality
+window.addEventListener('scroll', function() {
+    const backToTopButton = document.getElementById('backToTop');
+    if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+});
+
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+</script>
 </div>
 {% endblock %}
 
