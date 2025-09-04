@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ event.title }} - Krishna Janmashtami 2025{% endblock %}
+{% block title %}{{ event.title | safe }} - Krishna Janmashtami 2025{% endblock %}
 
 {% block content %}
 <style>
@@ -133,7 +133,7 @@
                 
                 <div class="text-center mt-5">
                     
-                    <h1 class="display-4 fw-bold mb-4 text-white">{{ event.title }}</h1>
+                    <h1 class="display-4 fw-bold mb-4 text-white">{{ event.title | safe }}</h1>
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <div class="d-flex align-items-center justify-content-center mb-2">
@@ -269,7 +269,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <h4 class="text-warning fw-bold">Individual</h4>
+                                    <h4 class="text-warning fw-bold">{{ event.participation_type }}</h4>
                                     <small class="text-muted">Format</small>
                                 </div>
                             </div>
@@ -295,8 +295,8 @@
 <!-- Call to Action Section -->
 <section class="py-5 text-center text-white">
     <div class="container">
-        <h3 class="mb-4">Ready to narrate the divine tales of Shri Krishna?</h3>
-        <p class="lead mb-4">Share enchanting tales of Shri Krishna and let His divine leelas inspire everyone.</p>
+        <h3 class="mb-4">{{ event.cta_title }}</h3>
+        <p class="lead mb-4">{{ event.motivational_sentence }}</p>
         <a href="{{ event.Google_form }}" class="btn btn-light btn-lg px-5">
             Register Now
         </a>

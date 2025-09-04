@@ -343,6 +343,24 @@
             display: flex !important;
         }
         
+        /* Enhanced mobile touch experience */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-link {
+                min-height: 44px;
+                touch-action: manipulation;
+            }
+            
+            .mobile-menu-toggle {
+                min-height: 48px;
+                min-width: 48px;
+                touch-action: manipulation;
+            }
+            
+            .nav-links.mobile-open {
+                touch-action: pan-y;
+            }
+        }
+        
         @keyframes slideDown {
             from {
                 opacity: 0;
@@ -852,6 +870,7 @@
                 padding: 0 0.8rem;
                 gap: 0.8rem;
                 min-height: 55px;
+                position: relative;
             }
             
             .college-logo {
@@ -878,19 +897,23 @@
                 position: absolute;
                 top: 100%;
                 right: 0;
-                background: white;
-                border: 1px solid #ddd;
-                border-radius: 0.5rem;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                padding: 1rem;
-                min-width: 200px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 107, 53, 0.2);
+                border-radius: 1rem;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+                padding: 1.5rem;
+                min-width: 180px;
                 z-index: 1001;
+                margin-top: 0.5rem;
             }
             
             .nav-links.mobile-open {
                 display: flex !important;
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 0.75rem;
+                animation: slideDownMobile 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                transform-origin: top right;
             }
             
             .nav-link-item {
@@ -898,33 +921,70 @@
             }
             
             .nav-link {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 100%;
                 text-align: center;
-                padding: 0.8rem 1rem;
-                border-radius: 0.5rem;
+                padding: 1rem 1.25rem;
+                border-radius: 0.75rem;
                 transition: all 0.3s ease;
+                border: 2px solid transparent;
+                font-weight: 600;
+                font-size: 0.95rem;
+                background: rgba(255, 255, 255, 0.8);
             }
             
             .nav-link:hover {
                 background: rgba(255, 107, 53, 0.1);
                 color: #FF6B35;
+                border-color: rgba(255, 107, 53, 0.3);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+            }
+            
+            .nav-link svg {
+                margin-right: 0.5rem;
+                width: 16px;
+                height: 16px;
             }
             
             .mobile-menu-toggle {
                 display: block;
-                background: transparent;
-                color: #000000;
-                border: none;
-                padding: 0.5rem;
-                border-radius: 0.5rem;
+                background: rgba(255, 107, 53, 0.1);
+                color: #FF6B35;
+                border: 2px solid rgba(255, 107, 53, 0.2);
+                padding: 0.75rem;
+                border-radius: 0.75rem;
                 cursor: pointer;
                 transition: all 0.3s ease;
+                min-width: 48px;
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             
             .mobile-menu-toggle:hover {
-                background: rgba(0, 0, 0, 0.1);
+                background: rgba(255, 107, 53, 0.2);
+                border-color: rgba(255, 107, 53, 0.4);
                 transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            }
+            
+            .mobile-menu-toggle:active {
+                transform: scale(0.95);
+            }
+            
+            @keyframes slideDownMobile {
+                from {
+                    opacity: 0;
+                    transform: translateY(-15px) scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
             }
         }
         
@@ -958,6 +1018,24 @@
             .college-subtitle {
                 font-size: 0.7rem;
             }
+            
+            .nav-links {
+                min-width: 160px;
+                padding: 1.25rem;
+                right: -0.5rem;
+            }
+            
+            .nav-link {
+                padding: 0.875rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .mobile-menu-toggle {
+                padding: 0.625rem;
+                min-width: 44px;
+                min-height: 44px;
+                font-size: 1.25rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -989,6 +1067,24 @@
             
             .college-subtitle {
                 font-size: 0.65rem;
+            }
+            
+            .nav-links {
+                min-width: 150px;
+                padding: 1rem;
+                right: -0.3rem;
+            }
+            
+            .nav-link {
+                padding: 0.75rem 0.875rem;
+                font-size: 0.85rem;
+            }
+            
+            .mobile-menu-toggle {
+                padding: 0.5rem;
+                min-width: 40px;
+                min-height: 40px;
+                font-size: 1.1rem;
             }
         }
         
@@ -1287,19 +1383,19 @@
                             Events
                         </a>
                     </div>
+                    <div class="nav-link-item">
+                        <a href="{{ url_for('about') }}" class="nav-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            About
+                        </a>
+                    </div>
                 </nav>
-                <div class="nav-link-item">
-                    <a href="{{ url_for('about') }}" class="nav-link">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        About
-                    </a>
-                </div>
                 
-                <button class="mobile-menu-toggle" onmouseenter="openMobileMenu()" onmouseleave="closeMobileMenu()">
+                <button class="mobile-menu-toggle" onmouseenter="openMobileMenu()" onmouseleave="closeMobileMenu()" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -1474,6 +1570,25 @@
             navLinks.classList.remove('mobile-open');
             divider.classList.remove('menu-open');
             mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+        
+        // Toggle mobile menu function (for click)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const divider = document.querySelector('.college-divider');
+            
+            if (navLinks.classList.contains('mobile-open')) {
+                // Close menu
+                navLinks.classList.remove('mobile-open');
+                divider.classList.remove('menu-open');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                // Open menu
+                navLinks.classList.add('mobile-open');
+                divider.classList.add('menu-open');
+                mobileToggle.innerHTML = '<i class="fas fa-times"></i>';
+            }
         }
         
         // Close mobile menu when clicking outside
